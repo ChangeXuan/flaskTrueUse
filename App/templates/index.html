@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+
+
+<div class="page-header">
+  Hello,
+  {% if current_user.is_authenticated %}
+  	{{current_user.email}}
+  	<p>Change Password? <a href="{{ url_for('auth.change') }}">Click here to Change</a>.</p>
+  {% else %}
+  	Stranger
+  {% endif %}
+</div>
+{% endblock %}
